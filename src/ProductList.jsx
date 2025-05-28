@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from './CartSlice';
 import './ProductList.css';
@@ -30,32 +30,40 @@ const plantsArray = [
 function ProductList() {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
-  const [addedToCart, setAddedToCart] = useState({});
+  const addedToCart = cartItems.map(item => item.name);
 
-  const handleAddToCart = (plant) => {
-    dispatch(addItem(plant));
-    setAddedToCart((prev) => ({ ...prev, [plant.name]: true }));
+  const categories = [...new Set(plantsArray.map(p => p.category))];
+
+  const renderCategorySection = (category) => {
+    const plants = plantsArray.filter(p => p.category === category);
+
+    return (
+      <div key={category}>
+        <h3 className="category-title">{category} Plants</h3>
+        <div className="product-grid">
+          {plants.map((plant, index) => (
+            <div key={index} className="product-card">
+              <img src={plant.image} alt={plant.name} />
+              <h3>{plant.name}</h3>
+              <p>{plant.description}</p>
+              <p className="price">{plant.cost}</p>
+              <button
+                disabled={addedToCart.includes(plant.name)}
+                onClick={() => dispatch(addItem(plant))}
+              >
+                {addedToCart.includes(plant.name) ? 'Added to Cart' : 'Add to Cart'}
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
   };
 
   return (
     <div className="product-list">
       <h2>Our Plants</h2>
-      <div className="product-grid">
-        {plantsArray.map((plant, index) => (
-          <div key={index} className="product-card">
-            <img src={plant.image} alt={plant.name} />
-            <h3>{plant.name}</h3>
-            <p>{plant.description}</p>
-            <p className="price">{plant.cost}</p>
-            <button
-              disabled={addedToCart[plant.name]}
-              onClick={() => handleAddToCart(plant)}
-            >
-              {addedToCart[plant.name] ? 'Added to Cart' : 'Add to Cart'}
-            </button>
-          </div>
-        ))}
-      </div>
+      {categories.map((category) => renderCategorySection(category))}
     </div>
   );
 }
