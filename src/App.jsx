@@ -11,7 +11,7 @@ function App() {
   const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <Router basename="/shoppingreact">
+    <Router>
       <div>
         <header className="header">
           <Link to="/" className="logo">🌱 Paradise Nursery</Link>
