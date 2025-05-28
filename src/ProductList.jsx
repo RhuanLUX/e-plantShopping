@@ -25,6 +25,27 @@ const plantsArray = [
     cost: '$15',
     category: 'Air Purifying',
   },
+  {
+    name: 'Basil',
+    image: '/images/basil.jpg',
+    description: 'Fragrant and edible, perfect for cooking.',
+    cost: '$9',
+    category: 'Aromatic',
+  },
+  {
+    name: 'Mint',
+    image: '/images/mint.jpg',
+    description: 'Refreshing aroma and useful in teas.',
+    cost: '$8',
+    category: 'Medicinal',
+  },
+  {
+    name: 'Peace Lily',
+    image: '/images/peace-lily.jpg',
+    description: 'Elegant plant that purifies air indoors.',
+    cost: '$14',
+    category: 'Air Purifying',
+  },
 ];
 
 function ProductList() {
