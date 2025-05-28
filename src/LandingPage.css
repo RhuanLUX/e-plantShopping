@@ -1,5 +1,5 @@
 .landing-container {
-  background-image: url('/shoppingreact/images/landing-background.jpg');
+  background-image: url('/images/landing-background.jpg'); /* caminho corrigido */
   background-size: cover;
   background-position: center;
   height: 100vh;
