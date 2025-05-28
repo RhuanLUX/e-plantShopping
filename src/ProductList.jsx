@@ -6,21 +6,21 @@ import './ProductList.css';
 const plantsArray = [
   {
     name: 'Aloe Vera',
-    image: '/shoppingreact/images/aloe.jpg',
+    image: '/images/aloe.jpg',
     description: 'Soothing and air purifying plant.',
     cost: '$10',
     category: 'Medicinal',
   },
   {
     name: 'Lavender',
-    image: '/shoppingreact/images/lavender.jpg',
+    image: '/images/lavender.jpg',
     description: 'Aromatic and calming.',
     cost: '$12',
     category: 'Aromatic',
   },
   {
     name: 'Snake Plant',
-    image: '/shoppingreact/images/snake.jpg',
+    image: '/images/snake.jpg',
     description: 'Great for low light and air purification.',
     cost: '$15',
     category: 'Air Purifying',
